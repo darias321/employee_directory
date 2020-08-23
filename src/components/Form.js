@@ -1,9 +1,13 @@
 import React from "react";
 
 const Form = (props) => {
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <div>
-      <form onSubmit={props.submitText}>
+      <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
           <input
             name="text"
@@ -13,6 +17,9 @@ const Form = (props) => {
             onChange={props.editText}
           />
         </div>
+        <button className="btn btn-primary" type="button">
+          Search
+        </button>
       </form>
     </div>
   );
