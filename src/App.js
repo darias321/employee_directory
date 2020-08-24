@@ -13,10 +13,6 @@ export default function App() {
     });
   }, []);
 
-  const submitText = (e) => {
-    e.preventDefault();
-  };
-
   const search = (event) => {
     const searchValue = event.target.value;
 
@@ -50,30 +46,31 @@ export default function App() {
         <div className="jumbotron rounded-0 text-center">
           <h1>Employee Directory</h1>
           <input onChange={search} />
-          <button onClick={submitText}>Submit</button>
           <button onClick={sort}> Sort by age</button>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Age</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.id.value}>
-                <th>{user.name.first}</th>
-                <th>{user.name.last}</th>
-                <th>{user.email}</th>
-                <th>{user.phone}</th>
-                <th>{user.dob.age}</th>
+        <div className="container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Age</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id.value}>
+                  <th>{user.name.first}</th>
+                  <th>{user.name.last}</th>
+                  <th>{user.email}</th>
+                  <th>{user.phone}</th>
+                  <th>{user.dob.age}</th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
